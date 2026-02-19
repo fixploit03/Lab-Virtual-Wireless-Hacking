@@ -309,9 +309,6 @@ nano wpa_supplicant.conf
 Isi dengan:
 
 ```bash
-ctrl_interface=/var/run/wpa_supplicant
-ctrl_interface_group=0
-
 network={
     ssid="WPA2-Personal"
     psk="12345678"
