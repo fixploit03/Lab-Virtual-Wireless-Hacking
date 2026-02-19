@@ -137,7 +137,7 @@ Meskipun bersifat virtual, `mac80211_hwsim` mendukung sebagian besar fitur yang 
 
 Mode operasi yang tersedia mencakup Access Point (AP) untuk membuat jaringan wireless, Managed (STA) untuk terhubung ke sebuah AP sebagai client, Monitor untuk menangkap semua frame di udara tanpa berasosiasi ke jaringan manapun, dan Ad-hoc untuk komunikasi peer-to-peer tanpa AP.
 
-Dari sisi keamanan, `mac80211_hwsim` mendukung enkripsi WEP, WPA, dan WPA2 dengan metode autentikasi PSK maupun Enterprise, sehingga simulasi serangan seperti WPA/WPA2 handshake capture dan password cracking dapat dilakukan secara realistis.
+Dari sisi keamanan, `mac80211_hwsim` mendukung enkripsi WEP, WPA, dan WPA2 dengan metode autentikasi PSK maupun Enterprise, sehingga simulasi serangan seperti capture handshake WPA/WPA2 dan password cracking dapat dilakukan secara realistis.
 
 `mac80211_hwsim` juga mendukung frame injection yang merupakan fitur krusial dalam wireless penetration testing. Fitur ini memungkinkan tool seperti `aireplay-ng` mengirimkan frame ke jaringan secara paksa, termasuk untuk keperluan deauthentication attack.
 
@@ -405,7 +405,7 @@ Meskipun lab virtual ini cukup untuk keperluan pembelajaran, terdapat beberapa k
 
 Melalui dokumentasi ini, kita telah berhasil membangun sebuah lab virtual wireless hacking yang sepenuhnya berjalan tanpa memerlukan hardware tambahan. Dengan memanfaatkan modul kernel `mac80211_hwsim`, kita dapat mensimulasikan tiga interface wireless virtual (`wlan0`, `wlan1`, `wlan2`) yang masing-masing berperan sebagai Access Point, client, dan interface pengujian.
 
-Dari lab ini kita juga telah mempelajari dan mempraktikkan alur kerja dasar wireless penetration testing, mulai dari membangun infrastruktur jaringan wireless virtual menggunakan `hostapd`, `dnsmasq`, dan `wpa_supplicant`, hingga melakukan simulasi serangan nyata seperti WPA/WPA2 handshake capture, deauthentication attack, dan password cracking menggunakan `aircrack-ng`.
+Dari lab ini kita juga telah mempelajari dan mempraktikkan alur kerja dasar wireless penetration testing, mulai dari membangun infrastruktur jaringan wireless virtual menggunakan `hostapd`, `dnsmasq`, dan `wpa_supplicant`, hingga melakukan simulasi serangan nyata seperti capture handshake WPA/WPA2, serangan deauth, dan password cracking menggunakan `aircrack-ng`.
 
 Pendekatan ini sangat berguna bagi siapa saja yang ingin belajar wireless security tanpa harus mengeluarkan biaya untuk membeli adapter fisik khusus, sekaligus memastikan bahwa seluruh proses latihan berlangsung dalam lingkungan yang terisolasi dan tidak merugikan pihak lain.
 
