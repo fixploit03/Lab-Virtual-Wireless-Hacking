@@ -107,6 +107,10 @@ Sebelum memahami peran `mac80211_hwsim`, perlu diketahui terlebih dahulu bagaima
 
 Di lapisan paling atas terdapat tool yang digunakan langsung oleh pengguna. `iw` digunakan untuk mengkonfigurasi interface wireless seperti mengecek status, mengubah mode, atau melihat network yang tersedia. `wpa_supplicant` bertugas mengelola koneksi dari sisi STA (client), sedangkan `hostapd` bertugas menjalankan Access Point. Semua tool ini berkomunikasi ke kernel melalui mekanisme yang disebut Netlink socket.
 
+**Kernel Space**
+
+Kernel Space adalah lapisan inti dari sistem operasi Linux tempat seluruh subsistem wireless dikelola. Di sinilah semua permintaan dari userspace diproses, divalidasi, dan diteruskan ke driver yang sesuai. Tidak ada tool pengguna yang bisa mengakses lapisan ini secara langsung, melainkan harus melalui antarmuka yang telah disediakan oleh kernel.
+
 **nl80211**
 
 `nl80211` adalah antarmuka Netlink yang menjadi jembatan komunikasi antara userspace dan kernel untuk segala hal yang berkaitan dengan wireless. Setiap perintah dari `iw`, `wpa_supplicant`, maupun `hostapd` akan diterjemahkan menjadi pesan Netlink dan dikirim melalui layer ini.
