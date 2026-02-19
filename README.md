@@ -24,6 +24,8 @@
 
 ## Pendahuluan
 
+![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/histori.png)
+
 Wireless penetration testing memerlukan adapter fisik yang mendukung mode monitor dan packet injection, seperti [Alfa AWUS036ACH](https://www.alfa.com.tw/products/awus036ach_1?variant=40319795789896) (RTL8812AU) atau [TP-Link TL-WN722N V1](https://www.tp-link.com/id/support/download/tl-wn722n/) (Atheros AR9271), yang harganya tidak murah dan tidak semua orang mampu membelinya.
 
 Dokumentasi ini hadir sebagai solusi alternatif menggunakan modul kernel [mac80211_hwsim](https://docs.kernel.org/6.1/networking/mac80211_hwsim/mac80211_hwsim.html) untuk mensimulasikan interface wireless virtual di Linux, sehingga wireless penetration testing dapat dipelajari dan dipraktikkan tanpa perangkat keras tambahan dalam lingkungan yang terisolasi dan aman.
