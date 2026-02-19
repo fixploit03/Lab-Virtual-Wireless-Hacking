@@ -39,7 +39,7 @@ Dokumentasi ini hadir sebagai solusi alternatif menggunakan modul kernel [mac802
 
 ### Apa itu mac80211_hwsim?
 
-`mac80211_hwsim` adalah modul kernel Linux yang dikembangkan oleh Jouni Malinen dan telah tersedia sejak kernel versi 2.6.27. Modul ini dirancang khusus untuk mensimulasikan perangkat wireless virtual langsung di dalam kernel tanpa memerlukan adapter fisik apapun.
+`mac80211_hwsim` adalah modul kernel Linux yang dikembangkan oleh **Jouni Malinen** dan telah tersedia sejak kernel versi [2.6.27](https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tag/?h=v2.6.27). Modul ini dirancang khusus untuk mensimulasikan perangkat wireless virtual langsung di dalam kernel tanpa memerlukan adapter fisik apapun.
 
 Nama `mac80211_hwsim` sendiri berasal dari dua bagian. `mac80211` merujuk pada subsistem wireless kernel Linux yang mengimplementasikan protokol IEEE 802.11, sedangkan `hwsim` adalah singkatan dari hardware simulator. Jadi secara harfiah, `mac80211_hwsim` adalah simulator hardware untuk subsistem `mac80211`.
 
@@ -137,18 +137,18 @@ Meskipun bersifat virtual, `mac80211_hwsim` mendukung sebagian besar fitur yang 
 
 Mode operasi yang tersedia mencakup Access Point (AP) untuk membuat jaringan wireless, Managed (STA) untuk terhubung ke sebuah AP sebagai client, Monitor untuk menangkap semua frame di udara tanpa berasosiasi ke jaringan manapun, dan Ad-hoc untuk komunikasi peer-to-peer tanpa AP.
 
-Dari sisi keamanan, `mac80211_hwsim` mendukung enkripsi WEP, WPA, dan WPA2 dengan metode autentikasi PSK maupun Enterprise. Ini memungkinkan simulasi serangan seperti WPA handshake capture dan password cracking dilakukan secara realistis.
+Dari sisi keamanan, `mac80211_hwsim` mendukung enkripsi WEP, WPA, dan WPA2 dengan metode autentikasi PSK maupun Enterprise, sehingga simulasi serangan seperti WPA/WPA2 handshake capture dan password cracking dapat dilakukan secara realistis.
 
-`mac80211_hwsim` juga mendukung frame injection yang merupakan fitur krusial dalam wireless penetration testing. Fitur ini memungkinkan tool seperti `aireplay-ng` mengirimkan frame arbitrary ke jaringan, termasuk untuk keperluan deauthentication attack.
+`mac80211_hwsim` juga mendukung frame injection yang merupakan fitur krusial dalam wireless penetration testing. Fitur ini memungkinkan tool seperti `aireplay-ng` mengirimkan frame ke jaringan secara paksa, termasuk untuk keperluan deauthentication attack.
 
-Selain itu, modul ini mendukung multiple virtual radio secara bersamaan, channel switching, dan berbagai mode frekuensi seperti 2.4GHz dan 5GHz, meskipun dalam lingkungan virtual karakteristik fisik seperti jangkauan dan interferensi tidak disimulasikan.
+Selain itu, modul ini mendukung beberapa virtual radio secara bersamaan, pergantian channel, dan berbagai mode frekuensi seperti 2.4GHz dan 5GHz.
 
 ### Perbandingan dengan Adapter Fisik
 
 Tabel berikut menggambarkan perbedaan antara `mac80211_hwsim` dan adapter fisik seperti Alfa AWUS036ACH atau TP-Link TL-WN722N V1.
 
 | Aspek | mac80211_hwsim | Adapter Fisik |
-|---|---|---|
+|:--:|:--:|:--:|
 | Biaya | Gratis | Rp 300.000 - Rp 1.500.000 |
 | Setup | Cukup load modul kernel | Perlu driver tambahan |
 | Mode Monitor | Didukung | Didukung (tergantung chipset) |
@@ -370,7 +370,7 @@ Setelah mode monitor aktif, nama interface `wlan2` akan berubah menjadi `wlan2mo
 #### 5. Scan jaringan Wi-Fi WPA/WPA2:
 
 ```bash
-sudo airodump-ng wlan2mon
+sudo airodump-ng -t wpa wlan2mon
 ```
 
 #### 6. Capture handshake WPA/WPA2:
@@ -379,7 +379,7 @@ sudo airodump-ng wlan2mon
 sudo airodump-ng -d [bssid] -c [channel] -w [output] wlan2mon
 ```
 
-#### 7. Jalankan serangan deauthentication:
+#### 7. Jalankan serangan deauth:
 
 ```bash
 sudo aireplay-ng -0 10 -a [bssid] -c [mac_client] wlan2mon
@@ -395,13 +395,17 @@ aircrack-ng -a 2 [file_capture] -w [wordlist]
 
 ### Keterbatasan
 
-Meskipun lab virtual ini cukup untuk keperluan pembelajaran, terdapat beberapa keterbatasan yang perlu diperhatikan. Interface wireless virtual tidak memiliki karakteristik sinyal nyata seperti jangkauan, interferensi, dan noise. Tidak semua fitur adapter fisik dapat disimulasikan, seperti injection rate dan channel hopping. Kecepatan capture paket dan throughput juga jauh di bawah adapter fisik pada umumnya. Selain itu, seluruh konfigurasi bersifat sementara dan akan hilang saat sistem di-reboot.
+Meskipun lab virtual ini cukup untuk keperluan pembelajaran, terdapat beberapa keterbatasan yang perlu diperhatikan.
+
+- Interface wireless virtual tidak memiliki karakteristik sinyal nyata seperti jangkauan, interferensi, dan noise.
+- Kecepatan capture paket dan throughput jauh di bawah adapter fisik pada umumnya.
+- Seluruh konfigurasi bersifat sementara dan akan hilang saat sistem di-reboot.
 
 ### Kesimpulan
 
 Melalui dokumentasi ini, kita telah berhasil membangun sebuah lab virtual wireless hacking yang sepenuhnya berjalan tanpa memerlukan hardware tambahan. Dengan memanfaatkan modul kernel `mac80211_hwsim`, kita dapat mensimulasikan tiga interface wireless virtual (`wlan0`, `wlan1`, `wlan2`) yang masing-masing berperan sebagai Access Point, client, dan interface pengujian.
 
-Dari lab ini kita juga telah mempelajari dan mempraktikkan alur kerja dasar wireless penetration testing, mulai dari membangun infrastruktur jaringan wireless virtual menggunakan `hostapd`, `dnsmasq`, dan `wpa_supplicant`, hingga melakukan simulasi serangan nyata seperti capturing WPA/WPA2 handshake, deauthentication attack, dan password cracking menggunakan `aircrack-ng`.
+Dari lab ini kita juga telah mempelajari dan mempraktikkan alur kerja dasar wireless penetration testing, mulai dari membangun infrastruktur jaringan wireless virtual menggunakan `hostapd`, `dnsmasq`, dan `wpa_supplicant`, hingga melakukan simulasi serangan nyata seperti WPA/WPA2 handshake capture, deauthentication attack, dan password cracking menggunakan `aircrack-ng`.
 
 Pendekatan ini sangat berguna bagi siapa saja yang ingin belajar wireless security tanpa harus mengeluarkan biaya untuk membeli adapter fisik khusus, sekaligus memastikan bahwa seluruh proses latihan berlangsung dalam lingkungan yang terisolasi dan tidak merugikan pihak lain.
 
