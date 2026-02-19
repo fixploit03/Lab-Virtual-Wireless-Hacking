@@ -32,6 +32,8 @@ Dokumentasi ini hadir sebagai solusi alternatif menggunakan modul kernel [mac802
 
 ## Pengenalan mac80211_hwsim
 
+![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/sleeping-tux-wireless_0.jpeg)
+
 ### Apa itu mac80211_hwsim?
 
 `mac80211_hwsim` adalah modul kernel Linux yang dikembangkan oleh Jouni Malinen dan telah tersedia sejak kernel versi 2.6.27. Modul ini dirancang khusus untuk mensimulasikan perangkat wireless virtual langsung di dalam kernel tanpa memerlukan adapter fisik apapun.
@@ -140,7 +142,7 @@ Tabel berikut menggambarkan perbedaan antara `mac80211_hwsim` dan adapter fisik 
 
 | Aspek | mac80211_hwsim | Adapter Fisik |
 |---|---|---|
-| Biaya | Gratis | Rp 300.000 — Rp 1.500.000 |
+| Biaya | Gratis | Rp 300.000 - Rp 1.500.000 |
 | Setup | Cukup load modul kernel | Perlu driver tambahan |
 | Mode Monitor | Didukung | Didukung (tergantung chipset) |
 | Frame Injection | Didukung | Didukung (tergantung chipset) |
@@ -168,7 +170,7 @@ Dari tabel di atas terlihat bahwa `mac80211_hwsim` unggul dari sisi aksesibilita
 
 ## Topologi Lab
 
-![img]()
+![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/topologi.png)
 
 **Daftar interface:**
 - `wlan0`: digunakan oleh `hostapd` & `dnsmasq`
