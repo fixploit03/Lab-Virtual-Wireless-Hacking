@@ -2,6 +2,7 @@
 
 ## Daftar Isi
 - [Pendahuluan](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking#pendahuluan)
+- [Disclaimer](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/README.md#disclaimer)
 - [Pengenalan mac80211_hwsim](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking#pengenalan-mac80211_hwsim)
   - [Apa itu mac80211_hwsim?](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking#apa-itu-mac80211_hwsim)
   - [Cara Kerja](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking#cara-kerja)
