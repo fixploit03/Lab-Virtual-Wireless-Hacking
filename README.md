@@ -360,6 +360,8 @@ Meskipun lab virtual ini cukup untuk keperluan pembelajaran, terdapat beberapa k
 
 ### Kesimpulan
 
+![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/end.png)
+
 Melalui dokumentasi ini, kita telah berhasil membangun sebuah lab virtual wireless hacking yang sepenuhnya berjalan tanpa memerlukan hardware tambahan. Dengan memanfaatkan modul kernel `mac80211_hwsim`, kita dapat mensimulasikan tiga interface wireless virtual (`wlan0`, `wlan1`, `wlan2`) yang masing-masing berperan sebagai Access Point, client, dan interface pengujian.
 
 Dari lab ini kita juga telah mempelajari dan mempraktikkan alur kerja dasar wireless penetration testing, mulai dari membangun infrastruktur jaringan wireless virtual menggunakan `hostapd`, `dnsmasq`, dan `wpa_supplicant`, hingga melakukan simulasi serangan nyata seperti capture handshake WPA/WPA2, serangan deauth, dan password cracking menggunakan `aircrack-ng`.
@@ -376,3 +378,4 @@ Pendekatan ini sangat berguna bagi siapa saja yang ingin belajar wireless securi
 - [Airmon-ng - Aircrack-ng Wiki](https://www.aircrack-ng.org/doku.php?id=airmon-ng)
 - [Airodump-ng - Aircrack-ng Wiki](https://www.aircrack-ng.org/doku.php?id=airodump-ng)
 - [Aireplay-ng - Aircrack-ng Wiki](https://www.aircrack-ng.org/doku.php?id=aireplay-ng)
+
