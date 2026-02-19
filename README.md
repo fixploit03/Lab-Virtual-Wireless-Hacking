@@ -143,7 +143,7 @@ Mode operasi yang tersedia mencakup Access Point (AP) untuk membuat jaringan wir
 
 Dari sisi keamanan, `mac80211_hwsim` mendukung enkripsi WEP, WPA, dan WPA2 dengan metode autentikasi PSK maupun Enterprise, sehingga simulasi serangan seperti capture handshake WPA/WPA2 dan password cracking dapat dilakukan secara realistis.
 
-`mac80211_hwsim` juga mendukung frame injection yang merupakan fitur krusial dalam wireless penetration testing. Fitur ini memungkinkan tool seperti `aireplay-ng` mengirimkan frame ke jaringan secara paksa, termasuk untuk keperluan deauthentication attack.
+`mac80211_hwsim` juga mendukung frame injection yang merupakan fitur krusial dalam wireless penetration testing. Fitur ini memungkinkan tool seperti `aireplay-ng` mengirimkan frame ke jaringan secara paksa, termasuk untuk keperluan serangan deauth.
 
 Selain itu, modul ini mendukung beberapa virtual radio secara bersamaan, pergantian channel, dan berbagai mode frekuensi seperti 2.4GHz dan 5GHz.
 
