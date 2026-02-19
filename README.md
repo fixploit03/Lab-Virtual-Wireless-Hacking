@@ -31,8 +31,10 @@ Wireless penetration testing memerlukan adapter fisik yang mendukung mode monito
 
 Dokumentasi ini hadir sebagai solusi alternatif menggunakan modul kernel [mac80211_hwsim](https://docs.kernel.org/6.1/networking/mac80211_hwsim/mac80211_hwsim.html) untuk mensimulasikan interface wireless virtual di Linux, sehingga wireless penetration testing dapat dipelajari dan dipraktikkan tanpa perangkat keras tambahan dalam lingkungan yang terisolasi dan aman.
 
+## Disclaimer
+
 > [!warning]
-> **Disclaimer:** Dokumentasi ini dibuat semata-mata untuk keperluan edukasi. Jangan gunakan teknik yang dipelajari di sini pada jaringan atau perangkat tanpa izin eksplisit dari pemiliknya.
+> Dokumentasi ini dibuat semata-mata untuk keperluan edukasi. Jangan gunakan teknik yang dipelajari di sini pada jaringan atau perangkat tanpa izin eksplisit dari pemiliknya.
 
 ## Pengenalan mac80211_hwsim
 
