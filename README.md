@@ -141,7 +141,7 @@ Meskipun bersifat virtual, `mac80211_hwsim` mendukung sebagian besar fitur yang 
 
 Mode operasi yang tersedia mencakup Access Point (AP) untuk membuat jaringan wireless, Managed (STA) untuk terhubung ke sebuah AP sebagai client, Monitor untuk menangkap semua frame di udara tanpa berasosiasi ke jaringan manapun, dan Ad-hoc untuk komunikasi peer-to-peer tanpa AP.
 
-Dari sisi keamanan, `mac80211_hwsim` mendukung enkripsi WEP, WPA, dan WPA2 dengan metode autentikasi PSK maupun Enterprise, sehingga simulasi serangan seperti capture handshake WPA/WPA2 dan password cracking dapat dilakukan secara realistis.
+Dari sisi keamanan, `mac80211_hwsim` mendukung enkripsi WEP, WPA, WPA2, dan WPA3 dengan metode autentikasi PSK, SAE (Simultaneous Authentication of Equals), maupun Enterprise, sehingga simulasi serangan seperti capture handshake WPA/WPA2, password cracking, hingga pengujian ketahanan WPA3-SAE dapat dilakukan secara realistis.
 
 `mac80211_hwsim` juga mendukung frame injection yang merupakan fitur krusial dalam wireless penetration testing. Fitur ini memungkinkan tool seperti `aireplay-ng` mengirimkan frame ke jaringan secara paksa, termasuk untuk keperluan serangan deauth.
 
@@ -345,7 +345,7 @@ ip addr show wlan1
 
 ### Crack WPA/WPA2-PSK dengan Aircrack-NG
 
-#### 1. Lihat interface yang tersedia:
+#### 1. Lihat semua interface wireless yang aktif:
 
 ```bash
 sudo airmon-ng
