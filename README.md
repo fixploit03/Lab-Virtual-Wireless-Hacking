@@ -61,51 +61,7 @@ Karena `mac80211_hwsim` mendaftarkan diri di layer yang sama dengan driver fisik
 
 Sebelum memahami peran `mac80211_hwsim`, perlu diketahui terlebih dahulu bagaimana Linux mengorganisasi subsistem wireless-nya. Linux Wi-Fi Stack tersusun atas beberapa layer yang saling bertingkat, mulai dari userspace di lapisan paling atas hingga driver hardware di lapisan paling bawah.
 
-```
-┌─────────────────────────────────────────────────────────┐
-│                        USERSPACE                        │
-│                                                         │
-│   ┌──────────────────────────────────────────────────┐  │
-│   │   iw                   wpa_supplicant / hostapd  │  │
-│   │   (konfigurasi)        (autentikasi & AP)        │  │
-│   └──────────────────────────┬───────────────────────┘  │
-└──────────────────────────────┼──────────────────────────┘
-                               │
-                            Netlink
-                               │
-┌──────────────────────────────▼──────────────────────────┐
-│                        KERNEL SPACE                     │
-│                                                         │
-│   ┌──────────────────────────────────────────────────┐  │
-│   │                     nl80211                      │  │
-│   │          (Jembatan komunikasi ke kernel)         │  │
-│   └──────────────────────────┬───────────────────────┘  │
-│                              │                          │
-│   ┌──────────────────────────▼───────────────────────┐  │
-│   │                    cfg80211                      │  │
-│   │    (Validasi konfigurasi & regulasi frekuensi)   │  │
-│   └──────────────────────────┬───────────────────────┘  │
-│                              │                          │
-│   ┌──────────────────────────▼───────────────────────┐  │
-│   │                    mac80211                      │  │
-│   │        (Implementasi protokol IEEE 802.11)       │  │
-│   └──────────────────────────┬───────────────────────┘  │
-│                              │                          │
-│              ┌───────────────┴───────────────┐          │
-│              │                               │          │
-│   ┌──────────▼───────────┐   ┌───────────────▼───────┐  │
-│   │    mac80211_hwsim    │   │     Driver Fisik      │  │
-│   │    (Simulasi virt)   │   │   (ath9k, rtl88xx)    │  │
-│   └──────────┬───────────┘   └───────────────┬───────┘  │
-│              │                               │          │
-└──────────────┼───────────────────────────────┼──────────┘
-               │                               │
-   ┌───────────▼──────────┐    ┌───────────────▼───────┐
-   │   wlan0, wlan1,      │    │     Adapter Fisik     │
-   │       wlan2          │    │    (Alfa, TP-Link)    │
-   │   (Interface Virt)   │    │                       │
-   └──────────────────────┘    └───────────────────────┘
-```
+![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/linux%20wifi%20stack.png)
 
 #### Penjelasan Setiap Layer
 
