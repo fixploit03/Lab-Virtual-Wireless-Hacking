@@ -1,5 +1,7 @@
 # Lab WPA2-Personal
 
+![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/lab%20wpa2.png)
+
 ## Konfigurasi Interface
 - `wlan0`: Attacker
 - `wlan1`: AP & DHCP Server
