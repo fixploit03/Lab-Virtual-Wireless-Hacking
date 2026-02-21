@@ -1,18 +1,25 @@
 # Lab WPA2-Personal
 
-Instal:
+## Konfigurasi Interface
+- `wlan0`: Attacker
+- `wlan1`: AP & DHCP Server
+- `wlan2` - `wlan4`: STA
+
+## Instalasi
+
+Beri izin eksekusi:
 
 ```
 chmod +x start-lab.sh stop-lab.sh
 ```
 
-Run:
+Jalankan lab:
 
 ```
 sudo ./start-lab.sh
 ```
 
-Stop:
+Stop lab:
 
 ```
 sudo ./stop-lab.sh
