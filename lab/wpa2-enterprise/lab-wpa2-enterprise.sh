@@ -25,7 +25,7 @@ for i in $(seq 0 5); do
         ip link set "wlan${i}" up
 done
 
-ip addr add 10.10.10.1/29 dev wlan2
+ip addr add 10.10.10.1/24 dev wlan2
 
 hostapd conf/hostapd.conf -B
 sleep 2
@@ -44,6 +44,6 @@ sleep 2
 dhclient wlan4
 
 # Juned
-wpa_supplicant -D nl80211 -i wlan5 -c conf/ucup.conf -B
+wpa_supplicant -D nl80211 -i wlan5 -c conf/juned.conf -B
 sleep 2
 dhclient wlan5
