@@ -21,7 +21,8 @@ sudo mv radius/eap /etc/freeradius/3.0/mods-available
 ```
 
 ```
-sudo systemctl start freeradius
+sudo systemctl restart freeradius
+sudo systemctl enable freeradius
 ```
 
 ```
