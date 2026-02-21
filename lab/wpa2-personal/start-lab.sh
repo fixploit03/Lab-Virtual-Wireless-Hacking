@@ -12,6 +12,7 @@ fi
 # lepas modul
 if lsmod | grep -q mac80211_hwsim; then
         modprobe -r mac80211_hwsim
+        sleep 3
 fi
 
 list_service=("hostapd" "dnsmasq" "wpa_supplicant" "NetworkManager")
