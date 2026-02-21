@@ -1,4 +1,5 @@
 # NS (Network Space)
+NS (Network Namespace) adalah fitur di Linux untuk membuat lingkungan jaringan yang terisolasi. Di dalamnya bisa punya interface, routing table, dan firewall rules sendiri yang benar-benar terpisah dari host maupun namespace lain, sehingga setiap namespace seolah-olah berjalan di mesin dengan jaringan yang berbeda.
 
 ## Konfigurasi
 
