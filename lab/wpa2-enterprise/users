@@ -1,0 +1,4 @@
+# Daftar user FreeRADIUS
+ucup Cleartext-Password := "ucup123"
+adit Cleartext-Password := "adit123"
+juned Cleartext-Password := "juned123"
