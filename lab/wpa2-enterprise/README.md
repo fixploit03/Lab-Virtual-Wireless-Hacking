@@ -27,6 +27,9 @@ radtest adit adit123 127.0.0.1 1812 testing123
 radtest juned juned123 127.0.0.1 1812 testing123
 ```
 
+> [!note]
+> Konfigurasi FreeRADIUS hanya perlu dilakukan satu kali.
+
 ## Jalankan LAB
 
 ```
