@@ -4,7 +4,7 @@
 
 ```
 sudo apt-get update
-sudo apt-get install git iw hostapd dnsmasq wpasupplicant isc-dhcp-client freeradius aircrack-ng eaphammer
+sudo apt-get install git iw hostapd dnsmasq wpasupplicant isc-dhcp-client freeradius aircrack-ng eaphammer john hashcat
 ```
 
 ## Kloning Repositori
