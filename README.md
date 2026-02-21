@@ -243,8 +243,7 @@ interface=wlan0
 bind-interfaces
 dhcp-range=10.10.10.2,10.10.10.254,255.255.255.0,12h
 dhcp-option=3,10.10.10.1
-no-resolv
-no-hosts
+port=0
 log-dhcp
 ```
 
