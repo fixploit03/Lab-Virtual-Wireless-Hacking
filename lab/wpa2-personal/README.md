@@ -1,7 +1,5 @@
 # Lab Wi-Fi WPA2-Personal
 
-![]()
-
 ## Konfigurasi Interface
 - `wlan0`: Attacker
 - `wlan1`: AP & DHCP Server
@@ -30,10 +28,10 @@ sudo ./start-lab.sh
 
 ## Screenshot
 
-![]()
-![]()
+![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/wpa2-personal.png)
+![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/airodump-ng.png)
 
-## Stop lab:
+## Stop Lab
 
 ```
 sudo ./stop-lab.sh
