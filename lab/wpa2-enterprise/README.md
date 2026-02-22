@@ -5,7 +5,22 @@
 - `wlan1`: Deauth
 - `wlan2`: AP & DHCP Server
 - `wlan3` - `wlan5`: STA
-  
+
+## Instal Tools
+
+```
+sudo apt-get update
+sudo apt-get install git iw hostapd dnsmasq wpasupplicant isc-dhcp-client freeradius aircrack-ng hostapd-wpe john hashcat
+```
+
+## Kloning Repositori
+
+```
+git clone https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking
+cd Lab-Virtual-Wireless-Hacking/lab/wpa2-enterprise
+chmod +x start-lab.sh stop-lab.sh
+```
+
 ## Konfigurasi FreeRADIUS
 
 ```
@@ -21,35 +36,13 @@ radtest juned juned123 127.0.0.1 1812 testing123
 > [!note]
 > Konfigurasi FreeRADIUS hanya perlu dilakukan satu kali.
 
-## Instalasi
-
-Instal tools yang dibutuhkan:
-
-```
-sudo apt-get update
-sudo apt-get install git iw hostapd dnsmasq wpasupplicant isc-dhcp-client freeradius aircrack-ng eaphammer john hashcat
-```
-
-Kloning repositori:
-
-```
-git clone https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking
-cd Lab-Virtual-Wireless-Hacking/lab/wpa2-enterprise
-```
-
-Beri izin eksekusi:
-
-```
-chmod +x start-lab.sh stop-lab.sh
-```
-
-Jalankan lab:
+## Jalankan Lab
 
 ```
 sudo ./start-lab.sh
 ```
 
-Stop lab:
+## Stop Lab
 
 ```
 sudo ./stop-lab.sh
