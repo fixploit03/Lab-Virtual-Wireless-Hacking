@@ -57,6 +57,8 @@ Yang membuat `mac80211_hwsim` unik adalah cara ia mensimulasikan komunikasi anta
 
 Karena `mac80211_hwsim` mendaftarkan diri di layer yang sama dengan driver fisik, semua layer di atasnya seperti `mac80211`, `cfg80211`, dan `nl80211` tetap berjalan normal. Hal ini membuat seluruh tool wireless standar di Linux dapat berjalan di atasnya tanpa modifikasi apapun.
 
+Selain interface `wlan0`, `wlan1`, dan seterusnya, `mac80211_hwsim` juga secara otomatis membuat satu interface khusus bernama `hwsim0` saat modul di-load. Berbeda dengan interface `wlan` yang berperan sebagai AP atau client, `hwsim0` adalah interface monitor yang berada langsung di jalur `hwsim_tx_frame`. Artinya, setiap frame 802.11 yang dikirim maupun diterima oleh semua virtual radio akan melewati `hwsim0`, sehingga interface ini dapat menangkap seluruh traffic antar virtual radio tanpa perlu mengaktifkan mode monitor secara manual menggunakan `airmon-ng`. `hwsim0` dapat langsung digunakan bersama tool seperti `tcpdump`, `wireshark`, maupun `airodump-ng` untuk keperluan analisis dan monitoring traffic di dalam lab virtual.
+
 ### Linux Wi-Fi Stack
 
 Sebelum memahami peran `mac80211_hwsim`, perlu diketahui terlebih dahulu bagaimana Linux mengorganisasi subsistem wireless-nya. Linux Wi-Fi Stack tersusun atas beberapa layer yang saling bertingkat, mulai dari userspace di lapisan paling atas hingga driver hardware di lapisan paling bawah.
