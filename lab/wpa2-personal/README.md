@@ -1,4 +1,4 @@
-# Lab WPA2-Personal
+# Lab Wi-Fi WPA2-Personal
 
 ![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/lab%20wpa2.png)
 
