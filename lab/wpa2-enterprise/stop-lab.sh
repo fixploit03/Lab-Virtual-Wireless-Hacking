@@ -15,7 +15,7 @@ if lsmod | grep -q mac80211_hwsim; then
         sleep 3
 fi
 
-list_service=("hostapd" "dnsmasq" "wpa_supplicant")
+list_service=("hostapd" "dnsmasq" "wpa_supplicant" "dhclient")
 
 # kill service
 for service in "${list_service[@]}"; do
