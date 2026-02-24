@@ -36,7 +36,7 @@ list_service=("hostapd" "dnsmasq" "wpa_supplicant" "dhclient" "freeradius" "Netw
 
 # kill service
 for service in "${list_service[@]}"; do
-        if pgrep -x "${service}" > /dev/null; then
+        if pgrep -x "${service}" &>/dev/null; then
                 if [[ "${service}" == "NetworkManager" ]]; then
                         systemctl stop "${service}"
                 else
