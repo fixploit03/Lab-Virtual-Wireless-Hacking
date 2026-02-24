@@ -1,0 +1,12 @@
+--- a/src/ap/wpa_auth.c	2026-02-24 19:54:55.001322836 +0000
++++ b/src/ap/wpa_auth.c	2026-02-24 19:54:55.059322836 +0000
+@@ -2755,7 +2755,8 @@
+ 	if (sm->wpa == WPA_VERSION_WPA2 &&
+ 	    (wpa_key_mgmt_wpa_ieee8021x(sm->wpa_key_mgmt) ||
+ 	     (sm->wpa_key_mgmt == WPA_KEY_MGMT_OWE && sm->pmksa) ||
+-	     wpa_key_mgmt_sae(sm->wpa_key_mgmt)) &&
++	     wpa_key_mgmt_sae(sm->wpa_key_mgmt) ||
++	     wpa_key_mgmt_wpa_psk(sm->wpa_key_mgmt)) &&
+ 	    sm->wpa_key_mgmt != WPA_KEY_MGMT_OSEN) {
+ 		pmkid = buf;
+ 		kde_len = 2 + RSN_SELECTOR_LEN + PMKID_LEN;
