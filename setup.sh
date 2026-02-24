@@ -11,11 +11,11 @@ for f in "${file[@]}"; do
 done
 
 # ekstrak hostapd
-tar -zxf hostapd/hostapd-2.11.tar.gz
+tar -zxf hostapd/hostapd-2.11.tar.gz -C hostapd
 
 # pindahin hostapd ke direktori '/usr/sbin'
-cp hostapd-2.11/hostapd/hostapd "${path}"
-cp hostapd-2.11/hostapd/hostapd_cli "${path}"
+cp hostapd/hostapd "${path}"
+cp hostapd/hostapd_cli "${path}"
 
 conf_users="/etc/freeradius/3.0/users"
 conf="conf/wpa2-enterprise/users"
@@ -35,3 +35,4 @@ for s in "${script[@]}"; do
         chmod +x "${s}.sh"
 done
          
+hash -r
