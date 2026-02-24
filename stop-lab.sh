@@ -20,7 +20,7 @@ list_service=("hostapd" "dnsmasq" "wpa_supplicant" "dhclient" "freeradius")
 
 # kill service
 for service in "${list_service[@]}"; do
-        if pgrep -x "${service}" > /dev/null; then
+        if pgrep -x "${service}" &>/dev/null; then
                 pkill -9 "${service}"
         fi
 done
