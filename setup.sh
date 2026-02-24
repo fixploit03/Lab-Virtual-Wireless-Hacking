@@ -1,5 +1,28 @@
 #!/bin/bash
 
+# cek root
+if [[ $EUID -ne 0 ]]; then
+        echo "Error: script ini harus dijalankan sebagai root!"
+        exit 1
+fi
+
+# instal tools
+tools=("macchanger" "dnsmasq" "wpa_supplicant" "iw" "freeradius" "dhclient")
+
+for t in "${tools[@]}"; do
+        if ! command -v "${t}" &>/dev/null; then
+                if [[ "${t}" == "wpa_supplicant" ]]; then
+                        apt-get install wpasupplicant -y
+                        continue
+                elif [[ "${t}" == "dhclient" ]]; then
+                        apt-get install isc-dhcp-client -y
+                        continue
+                else
+                        apt-get install "${t}" -y
+                fi
+        fi
+done
+
 path="/usr/sbin"
 file=("hostapd" "hostapd_cli")
 
