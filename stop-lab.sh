@@ -6,6 +6,7 @@
 #
 # + Github: https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/
 # + Dibuat oleh: Rofi (Fixploit03)
+#
 # ------------------------------------------------------------------------------------------------
 
 if [[ $EUID -ne 0 ]]; then
