@@ -8,8 +8,6 @@
 ## Instalasi
 
 ```bash
-sudo apt-get update
-sudo apt-get install macchanger hostapd dnsmasq wpasupplicant iw freeradius isc-dhcp-client
 git clone https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking
 cd Lab-Virtual-Wireless-Hacking
 chmod +x setup.sh
