@@ -11,7 +11,7 @@ sudo apt-get install macchanger hostapd dnsmasq wpasupplicant iw freeradius dhcl
 git clone https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking
 cd Lab-Virtual-Wireless-Hacking
 chmod +x setup.sh
-./setup.sh
+sudo ./setup.sh
 ```
 
 ## Penggunaan
