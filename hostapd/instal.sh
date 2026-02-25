@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # update repositori linux
-apt-get update
+apt-get update -y
 
 # list dependensi
 dependensi=(
@@ -15,7 +15,7 @@ dependensi=(
 
 # instal dependensi
 for d in "${dependensi[@]}"; do
-  apt-get install "${d}"
+  apt-get install "${d}" -y
 done
 
 tar -zxf hostapd-2.11.tar.gz
