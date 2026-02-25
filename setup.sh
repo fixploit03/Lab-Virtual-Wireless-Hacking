@@ -6,6 +6,9 @@ if [[ $EUID -ne 0 ]]; then
         exit 1
 fi
 
+# update repositori linux
+apt-get update -y
+
 # instal tools
 tools=("macchanger" "dnsmasq" "wpa_supplicant" "iw" "freeradius" "dhclient")
 
