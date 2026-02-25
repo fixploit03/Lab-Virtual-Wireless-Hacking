@@ -26,22 +26,8 @@ for t in "${tools[@]}"; do
         fi
 done
 
-path="/usr/sbin"
-file=("hostapd" "hostapd_cli")
-
-# kalo ada file bakal di backup
-for f in "${file[@]}"; do
-        if [[ -f "${path}/${f}" ]]; then
-                mv "${path}/${f}" "${path}/${f}.bak"
-        fi
-done
-
-# ekstrak hostapd
-tar -zxf hostapd/hostapd-2.11.tar.gz -C hostapd
-
-# pindahin hostapd ke direktori '/usr/sbin'
-cp hostapd/hostapd "${path}"
-cp hostapd/hostapd_cli "${path}"
+# instal hostapd
+bash hostapd/instal.sh
 
 conf_users="/etc/freeradius/3.0/users"
 conf="conf/wpa2-enterprise/users"
