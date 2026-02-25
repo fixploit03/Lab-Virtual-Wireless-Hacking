@@ -1,8 +1,5 @@
 #!/bin/bash
 
-# update repositori linux
-apt-get update -y
-
 # list dependensi
 dependensi=(
 	"build-essential"
@@ -19,6 +16,8 @@ for d in "${dependensi[@]}"; do
 done
 
 tar -zxf hostapd-2.11.tar.gz
-cd hostapd-2.11/hostapd
+cd hostapd-2.11
+patch -p1 < pmkid.patch
+cd hostapd
 make -j$(nproc)
 make install SBINDIR=/usr/sbin BINDIR=/usr/sbin
