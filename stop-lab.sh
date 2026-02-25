@@ -14,8 +14,6 @@ if [[ $EUID -ne 0 ]]; then
         exit 1
 fi
 
-ns="lab-wifi"
-
 list_service=("hostapd" "dnsmasq" "wpa_supplicant" "dhclient" "freeradius")
 
 # kill service
@@ -25,10 +23,23 @@ for service in "${list_service[@]}"; do
         fi
 done
 
+# nama ns (network space)
+network_space=(
+        "opn"
+        "wpa-personal"
+        "wpa2-personal"
+        "wpa-wpa2-personal"
+        "wpa2-enterprise"
+        "wpa3-transition"
+        "wpa3-sae"
+)
+
 # hapus ns
-if ip netns l | grep -q "${ns}"; then
-        ip netns d "${ns}"
-fi
+for ns in "${network_space[@]}"; do
+	if ip netns l | grep -q "${ns}"; then
+	        ip netns d "${ns}"
+	fi
+done
 
 # lepas modul
 if lsmod | grep -q mac80211_hwsim; then
