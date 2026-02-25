@@ -27,8 +27,11 @@ for t in "${tools[@]}"; do
 done
 
 # instal hostapd
-bash hostapd/instal.sh
+cd hostapd
+bash instal.sh
+cd ..
 
+# konfigurasi freeradius
 conf_users="/etc/freeradius/3.0/users"
 conf="conf/wpa2-enterprise/users"
 
