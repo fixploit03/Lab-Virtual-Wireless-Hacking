@@ -1,6 +1,7 @@
 # PMKID Attack
 
 ## Persyaratan
+- Jaringan Wi-Fi WPA/WPA2-Personal
 - OS Linux
 - Hak akses root (`sudo`)
 - hcxdumptool ([6.2.8](https://github.com/ZerBea/hcxdumptool/releases/download/6.2.8/hcxdumptool-6.2.8.tar.gz))
