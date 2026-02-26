@@ -67,3 +67,6 @@ hashcat -m 22000 --show hash.txt
 ```
 
 ![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/lab/pmkid%20attack/cracked.png)
+
+## Referensi
+- [https://hashcat.net/forum/thread-7717.html](https://hashcat.net/forum/thread-7717.html)
