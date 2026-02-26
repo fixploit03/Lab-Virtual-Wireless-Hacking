@@ -30,7 +30,7 @@ sudo hcxdumptool -m wlan1
 #### 3. Capture PMKID menggunakan hcxdumptool:
 
 ```
-hcxdumptool -i wlan1 -o capture.pcap -s 2 --disable_client_attacks --disable_deauthentication --tot=5 --enable_status=1
+sudo hcxdumptool -i wlan1 -o capture.pcap -s 2 --disable_client_attacks --disable_deauthentication --tot=5 --enable_status=1
 ```
 
 ![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/lab/pmkid%20attack/hcxdumptool.png)
