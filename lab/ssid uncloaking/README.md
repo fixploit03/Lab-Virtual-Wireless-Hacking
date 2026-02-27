@@ -14,6 +14,12 @@ Ketika AP dikonfigurasi sebagai hidden SSID, AP tersebut tidak menyiarkan nama j
 
 Saat seorang client ingin terhubung ke AP dengan hidden SSID, client tersebut akan mengirimkan probe request yang berisi SSID yang ingin dituju. AP kemudian akan merespons dengan probe response yang juga mengandung SSID aslinya. Proses pertukaran frame inilah yang menjadi celah utama dalam teknik SSID uncloaking.
 
+![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/lab/ssid%20uncloaking/filter.png)
+
+![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/lab/ssid%20uncloaking/probe%20request.png)
+
+![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/lab/ssid%20uncloaking/probe%20response.png)
+
 Dengan memanfaatkan tools seperti `airodump-ng`, penyerang dapat memantau lalu lintas wireless di sekitarnya. Kemudian dengan mengirimkan paket deauthentication menggunakan `aireplay-ng` ke client yang sedang terhubung ke AP, client tersebut akan terputus secara paksa dari jaringan. Secara otomatis client akan mencoba melakukan reconnect ke AP, dan pada saat itulah proses probe request dan probe response terjadi. `airodump-ng` yang sedang berjalan di mode monitor akan menangkap probe response tersebut dan menampilkan SSID asli yang tadinya tersembunyi.
 
 ## Persyaratan
