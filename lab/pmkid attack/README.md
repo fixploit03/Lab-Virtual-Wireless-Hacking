@@ -1,5 +1,31 @@
 # PMKID Attack
 
+## Daftar Isi
+- [Apa itu PMKID Attack?]()
+- [Cara Kerja]()
+- [Persyaratan]()
+- [Langkah-Langkah]()
+  
+## Apa itu PMKID Attack?
+PMKID Attack adalah teknik serangan pada jaringan Wi-Fi WPA/WPA2-Personal untuk mendapatkan password jaringan tanpa perlu menunggu atau memaksa client melakukan proses handshake.
+
+## Cara Kerja
+PMKID (Pairwise Master Key Identifier) adalah nilai identifikasi yang digunakan oleh AP dalam proses autentikasi WPA/WPA2. Nilai ini dihitung menggunakan rumus berikut:
+
+```
+PMKID = HMAC-SHA1-128(PMK, "PMK Name" | MAC_AP | MAC_STA)
+```
+
+PMK (Pairwise Master Key) diturunkan langsung dari password jaringan (PSK) dan SSID menggunakan fungsi PBKDF2-SHA1 dengan rumus berikut:
+
+```
+PMK = PBKDF2(HMAC-SHA1, PSK, SSID, 4096, 256)
+```
+
+Karena PMKID mengandung nilai yang diturunkan dari password, maka PMKID dapat digunakan untuk melakukan serangan dictionary atau brute-force secara offline.
+
+Serangan ini bekerja pada RSN IE (Robust Security Network Information Element) yang terdapat pada **EAPOL frame pertama (M1)** dari proses 4-way handshake. Penyerang cukup mengirimkan satu permintaan autentikasi ke AP, kemudian AP akan merespons dengan menyertakan PMKID di dalam RSN IE tersebut tanpa memerlukan client yang sedang terhubung. PMKID tersebut kemudian ditangkap menggunakan `hcxdumptool` dan dikonversi ke format yang dapat diproses oleh `hashcat` menggunakan `hcxpcapngtool`. Selanjutnya `hashcat` akan mencoba mencocokkan PMKID tersebut dengan setiap kata dalam wordlist menggunakan mode `22000` hingga password yang cocok ditemukan.
+
 ## Persyaratan
 - Jaringan Wi-Fi WPA/WPA2-Personal
 - OS Linux
@@ -70,3 +96,5 @@ hashcat -m 22000 --show hash.txt
 
 ## Referensi
 - [https://hashcat.net/forum/thread-7717.html](https://hashcat.net/forum/thread-7717.html)
+- [https://hashcat.net/wiki/doku.php?id=cracking_wpawpa2](https://hashcat.net/wiki/doku.php?id=cracking_wpawpa2)
+- [https://www.hackingarticles.in/wireless-penetration-testing-pmkid-attack/](https://www.hackingarticles.in/wireless-penetration-testing-pmkid-attack/)
