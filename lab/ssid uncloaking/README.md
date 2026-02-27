@@ -55,7 +55,7 @@ sudo airodump-ng wlan1
 #### 4. Fokuskan scan pada jaringan tersebut:
 
 ```
-sudo airodump-ng wlan1 -d [bssid] -c [channel]
+sudo airodump-ng -d [bssid] -c [channel] wlan1
 ```
 
 ![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/lab/ssid%20uncloaking/lock.png)
