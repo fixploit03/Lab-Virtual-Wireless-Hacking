@@ -39,12 +39,6 @@ Serangan ini bekerja pada RSN IE (Robust Security Network Information Element) y
 - Hashcat
 - Wordlist (`rockyou.txt`)
 
-## Instalasi
-
-```
-
-```
-
 ## Langkah-Langkah
 
 #### 1. Lihat semua interface wireless yang aktif:
