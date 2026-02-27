@@ -24,6 +24,10 @@ PMK = PBKDF2(HMAC-SHA1, PSK, SSID, 4096, 256)
 
 Karena PMKID mengandung nilai yang diturunkan dari password, maka PMKID dapat digunakan untuk melakukan serangan dictionary atau brute-force secara offline.
 
+![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/lab/pmkid%20attack/m1.png)
+
+![](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/img/lab/pmkid%20attack/pmkid.png)
+
 Serangan ini bekerja pada RSN IE (Robust Security Network Information Element) yang terdapat pada **EAPOL frame pertama (M1)** dari proses 4-way handshake. Penyerang cukup mengirimkan satu permintaan autentikasi ke AP, kemudian AP akan merespons dengan menyertakan PMKID di dalam RSN IE tersebut tanpa memerlukan client yang sedang terhubung. PMKID tersebut kemudian ditangkap menggunakan `hcxdumptool` dan dikonversi ke format yang dapat diproses oleh `hashcat` menggunakan `hcxpcapngtool`. Selanjutnya `hashcat` akan mencoba mencocokkan PMKID tersebut dengan setiap kata dalam wordlist menggunakan mode `22000` hingga password yang cocok ditemukan.
 
 ## Persyaratan
@@ -34,7 +38,13 @@ Serangan ini bekerja pada RSN IE (Robust Security Network Information Element) y
 - hcxtools ([6.2.8](https://github.com/ZerBea/hcxtools/releases/download/6.2.8/hcxtools-6.2.8.tar.gz))
 - Hashcat
 - Wordlist (`rockyou.txt`)
-  
+
+## Instalasi
+
+```
+
+```
+
 ## Langkah-Langkah
 
 #### 1. Lihat semua interface wireless yang aktif:
