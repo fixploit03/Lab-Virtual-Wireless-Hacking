@@ -1,10 +1,10 @@
 # PMKID Attack
 
 ## Daftar Isi
-- [Apa itu PMKID Attack?]()
-- [Cara Kerja]()
-- [Persyaratan]()
-- [Langkah-Langkah]()
+- [Apa itu PMKID Attack?](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/lab/pmkid%20attack/README.md#apa-itu-pmkid-attack)
+- [Cara Kerja](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/lab/pmkid%20attack/README.md#cara-kerja)
+- [Persyaratan](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/lab/pmkid%20attack/README.md#persyaratan)
+- [Langkah-Langkah](https://github.com/fixploit03/Lab-Virtual-Wireless-Hacking/blob/main/lab/pmkid%20attack/README.md#langkah-langkah)
   
 ## Apa itu PMKID Attack?
 PMKID Attack adalah teknik serangan pada jaringan Wi-Fi WPA/WPA2-Personal untuk mendapatkan password jaringan tanpa perlu menunggu atau memaksa client melakukan proses handshake.
