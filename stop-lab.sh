@@ -9,14 +9,14 @@
 #
 # ------------------------------------------------------------------------------------------------
 
+# cek root
 if [[ $EUID -ne 0 ]]; then
         echo "Error: script ini harus dijalankan sebagai root!"
         exit 1
 fi
 
-list_service=("hostapd" "dnsmasq" "wpa_supplicant" "dhclient" "freeradius")
-
 # kill service
+list_service=("hostapd" "dnsmasq" "wpa_supplicant" "dhclient" "freeradius")
 for service in "${list_service[@]}"; do
         if pgrep -x "${service}" &>/dev/null; then
                 pkill -9 "${service}"
@@ -34,11 +34,12 @@ network_space=(
         "wpa3-sae"
 )
 
-# hapus ns
+# kill bash sama hapus ns
 for ns in "${network_space[@]}"; do
-	if ip netns l | grep -q "${ns}"; then
-	        ip netns d "${ns}"
-	fi
+        if ip netns l | grep -q "${ns}"; then
+                ip netns exec "${ns}" pkill -9 bash &>/dev/null
+                ip netns d "${ns}"
+        fi
 done
 
 # lepas modul
