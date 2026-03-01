@@ -96,6 +96,12 @@ for ns in "${network_space[@]}"; do
                         ip netns exec "${ns}" wpa_supplicant -D nl80211 -i "wlan${i}" -c conf/opn/wpa_supplicant.conf -B -q
                         sleep 1
                         ip netns exec "${ns}" dhclient "wlan${i}"
+                        ip netns exec "${ns}" bash -c "
+                                while true; do
+                                        ping -I "wlan${i}" 10.10.1.1 -c 1 -q &>/dev/null
+                                        sleep 1
+                                done &
+                        "
                 done
         # wifi wpa-personal
         elif [[ "${ns}" == "wpa-personal" ]]; then
@@ -112,6 +118,12 @@ for ns in "${network_space[@]}"; do
                         ip netns exec "${ns}" wpa_supplicant -D nl80211 -i "wlan${i}" -c conf/wpa-personal/wpa_supplicant.conf -B -q
                         sleep 1
                         ip netns exec "${ns}" dhclient "wlan${i}"
+                        ip netns exec "${ns}" bash -c "
+                                while true; do
+                                        ping -I "wlan${i}" 10.10.10.1 -c 1 -q &>/dev/null
+                                        sleep 1
+                                done &
+                        "
                 done
         # wifi wpa2-personal
         elif [[ "${ns}" == "wpa2-personal" ]]; then
@@ -128,6 +140,12 @@ for ns in "${network_space[@]}"; do
                         ip netns exec "${ns}" wpa_supplicant -D nl80211 -i "wlan${i}" -c conf/wpa2-personal/wpa_supplicant.conf -B -q
                         sleep 1
                         ip netns exec "${ns}" dhclient "wlan${i}"
+                        ip netns exec "${ns}" bash -c "
+                                while true; do
+                                        ping -I "wlan${i}" 10.10.20.1 -c 1 -q &>/dev/null
+                                        sleep 1
+                                done &
+                        "
                 done
         # wifi wpa/wpa2-personal
         elif [[ "${ns}" == "wpa-wpa2-personal" ]]; then
@@ -144,6 +162,12 @@ for ns in "${network_space[@]}"; do
                         ip netns exec "${ns}" wpa_supplicant -D nl80211 -i "wlan${i}" -c conf/wpa2-mixed/wpa_supplicant.conf -B -q
                         sleep 1
                         ip netns exec "${ns}" dhclient "wlan${i}"
+                        ip netns exec "${ns}" bash -c "
+                                while true; do
+                                        ping -I "wlan${i}" 10.10.30.1 -c 1 -q &>/dev/null
+                                        sleep 1
+                                done &
+                        "
                 done
         # wifi wpa2-enterprise
         elif [[ "${ns}" == "wpa2-enterprise" ]]; then
@@ -162,16 +186,34 @@ for ns in "${network_space[@]}"; do
                 ip netns exec "${ns}" wpa_supplicant -D nl80211 -i wlan19 -c conf/wpa2-enterprise/ucup.conf -B -q
                 sleep 1
                 ip netns exec "${ns}" dhclient wlan19
+                ip netns exec "${ns}" bash -c "
+                        while true; do
+                                ping -I wlan19 10.10.40.1 -c 1 -q &>/dev/null
+                                sleep 1
+                        done &
+                "
                 #
                 # Adit
                 ip netns exec "${ns}" wpa_supplicant -D nl80211 -i wlan20 -c conf/wpa2-enterprise/adit.conf -B -q
                 sleep 1
                 ip netns exec "${ns}" dhclient wlan20
+                ip netns exec "${ns}" bash -c "
+                        while true; do
+                                ping -I wlan20 10.10.40.1 -c 1 -q &>/dev/null
+                                sleep 1
+                        done &
+                "
                 #
                 # Juned
                 ip netns exec "${ns}" wpa_supplicant -D nl80211 -i wlan21 -c conf/wpa2-enterprise/juned.conf -B -q
                 sleep 1
                 ip netns exec "${ns}" dhclient wlan21
+                ip netns exec "${ns}" bash -c "
+                        while true; do
+                                ping -I wlan21 10.10.40.1 -c 1 -q &>/dev/null
+                                sleep 1
+                        done &
+                "
         # wifi wpa3-transition
         elif [[ "${ns}" == "wpa3-transition" ]]; then
                 for i in $(seq 22 25); do
@@ -187,6 +229,12 @@ for ns in "${network_space[@]}"; do
                         ip netns exec "${ns}" wpa_supplicant -D nl80211 -i "wlan${i}" -c conf/wpa3-transition/wpa_supplicant.conf -B -q
                         sleep 1
                         ip netns exec "${ns}" dhclient "wlan${i}"
+                        ip netns exec "${ns}" bash -c "
+                                while true; do
+                                        ping -I "wlan${i}" 10.10.50.1 -c 1 -q &>/dev/null
+                                        sleep 1
+                                done &
+                        "
                 done
         # wifi wpa3-sae
         elif [[ "${ns}" == "wpa3-sae" ]]; then
@@ -203,6 +251,12 @@ for ns in "${network_space[@]}"; do
                         ip netns exec "${ns}" wpa_supplicant -D nl80211 -i "wlan${i}" -c conf/wpa3-sae/wpa_supplicant.conf -B -q
                         sleep 1
                         ip netns exec "${ns}" dhclient "wlan${i}"
+                        ip netns exec "${ns}" bash -c "
+                                while true; do
+                                        ping -I "wlan${i}" 10.10.60.1 -c 1 -q &>/dev/null
+                                        sleep 1
+                                done &
+                        "
                 done
         fi
 done
