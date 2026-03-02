@@ -15,14 +15,6 @@ if [[ $EUID -ne 0 ]]; then
         exit 1
 fi
 
-# kill service
-list_service=("hostapd" "dnsmasq" "wpa_supplicant" "dhclient" "freeradius")
-for service in "${list_service[@]}"; do
-        if pgrep -x "${service}" &>/dev/null; then
-                pkill -9 "${service}"
-        fi
-done
-
 # nama ns (network space)
 network_space=(
         "opn"
@@ -34,10 +26,10 @@ network_space=(
         "wpa3-sae"
 )
 
-# kill bash sama hapus ns
+# kill semua process di ns + hapus ns
 for ns in "${network_space[@]}"; do
         if ip netns l | grep -q "${ns}"; then
-                ip netns exec "${ns}" pkill -9 bash &>/dev/null
+                ip netns pids "${ns}" | xargs -r kill -9
                 ip netns d "${ns}"
         fi
 done
