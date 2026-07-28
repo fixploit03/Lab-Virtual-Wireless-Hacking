@@ -25,13 +25,18 @@ Lab ini mencakup berbagai skema keamanan Wi-Fi, mulai dari jaringan terbuka tanp
 Cocok digunakan oleh pelajar, mahasiswa, praktisi keamanan siber, maupun siapa pun yang ingin memahami secara *hands-on* bagaimana kelemahan pada berbagai skema keamanan Wi-Fi dapat dieksploitasi.
 
 ## Persyaratan
-- Laptop/PC
-- VirtualBox 7.0+
-- RAM host: 8 GB
-- CPU: 2 core
-- Storage (free space): 30 GB
+
+| Kebutuhan | Spesifikasi |
+|--|--|
+| Perangkat | Laptop/PC |
+| Software | VirtualBox 7.0+ |
+| RAM host | 8 GB |
+| CPU | 2 core |
+| Storage | 30 GB (free space) |
 
 ## Topologi Lab
+
+Lab terdiri dari 5 Access Point dengan skema keamanan yang berbeda-beda, yaitu OPN, WPA2-Personal, WPA2-Enterprise, WPA3 Transition Mode, dan WPA3-Personal. Setiap Access Point memiliki 1 Station (client) yang terhubung,
 
 ![](https://github.com/fixploit03/lab-wifi/blob/main/img/lab_wifi_topology.png)
 
