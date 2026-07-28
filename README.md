@@ -1,6 +1,10 @@
-# lab-wifi
+# 🛜 lab-wifi
 
-![](https://github.com/fixploit03/lab-wifi/blob/main/img/histori.jpg)
+![License](https://img.shields.io/github/license/fixploit03/lab-wifi)
+![Release](https://img.shields.io/github/v/release/fixploit03/lab-wifi)
+![Issues](https://img.shields.io/github/issues/fixploit03/lab-wifi)
+![Stars](https://img.shields.io/github/stars/fixploit03/lab-wifi)
+![Last Commit](https://img.shields.io/github/last-commit/fixploit03/lab-wifi)
 
 ## Daftar Isi
 - [Apa itu lab-wifi?](#apa-itu-lab-wifi)
@@ -14,18 +18,11 @@
 
 ## Apa itu lab-wifi?
 
-![License](https://img.shields.io/github/license/fixploit03/lab-wifi)
-![Release](https://img.shields.io/github/v/release/fixploit03/lab-wifi)
-![Issues](https://img.shields.io/github/issues/fixploit03/lab-wifi)
-![Stars](https://img.shields.io/github/stars/fixploit03/lab-wifi)
-![Last Commit](https://img.shields.io/github/last-commit/fixploit03/lab-wifi)
+**lab-wifi** adalah lab virtual untuk simulasi *Wi-Fi hacking*, dibangun menggunakan [mac80211_hwsim](https://docs.kernel.org/6.1/networking/mac80211_hwsim/mac80211_hwsim.html), driver kernel Linux yang mensimulasikan perangkat wireless sepenuhnya lewat software, sehingga seluruh skenario bisa dijalankan tanpa membutuhkan perangkat Wi-Fi apa pun.
 
+Lab ini mencakup berbagai skema keamanan Wi-Fi, mulai dari jaringan terbuka tanpa enkripsi (OPN), WPA2-Personal, WPA2-Enterprise, hingga WPA3-Personal, tanpa risiko menyentuh jaringan produksi atau milik orang lain. Karena seluruh proses berjalan di dalam VM, lab ini dapat digunakan berulang kali, di-reset kapan saja, dan tidak memerlukan izin dari pihak ketiga.
 
-**lab-wifi** adalah lab virtual untuk simulasi *Wi-Fi hacking* yang dibangun menggunakan [mac80211_hwsim](https://docs.kernel.org/6.1/networking/mac80211_hwsim/mac80211_hwsim.html), sebuah driver kernel Linux yang mensimulasikan perangkat wireless secara software tanpa memerlukan adapter Wi-Fi fisik apa pun.
-
-Lab ini dirancang untuk membantu siapa saja yang ingin belajar dan mempraktikkan teknik *Wi-Fi penetration testing* secara aman dan terkendali, mulai dari jaringan tanpa enkripsi (OPN) hingga skema keamanan modern seperti WPA3, tanpa risiko menyentuh jaringan produksi atau milik orang lain. Seluruh skenario dijalankan di dalam VM sehingga dapat digunakan berulang kali, di-reset kapan saja, dan tidak memerlukan izin dari pihak ketiga.
-
-Cocok digunakan oleh pelajar, mahasiswa, praktisi keamanan siber, maupun siapa pun yang ingin memahami kelemahan berbagai skema keamanan Wi-Fi secara *hands-on*.
+Cocok digunakan oleh pelajar, mahasiswa, praktisi keamanan siber, maupun siapa pun yang ingin memahami secara *hands-on* bagaimana kelemahan pada berbagai skema keamanan Wi-Fi dapat dieksploitasi.
 
 ## Persyaratan
 - Laptop/PC
@@ -51,7 +48,7 @@ Cocok digunakan oleh pelajar, mahasiswa, praktisi keamanan siber, maupun siapa p
 ## Cara Menggunakan Lab
 1. Download semua file `.ova` yang ada di halaman [Release](https://github.com/fixploit03/lab-wifi/releases).
 2. Gabungkan menjadi satu file:
-   
+
    ```bash
    cat lab-wifi.ova.part-* > lab-wifi.ova
    ```
